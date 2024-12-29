@@ -39,7 +39,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/acl'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return response
 
@@ -54,7 +54,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/acl/validate'
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=acl_json)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=acl_json, timeout=60)
 
         return(response)
 
@@ -72,7 +72,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/acl'
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=acl_json)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=acl_json, timeout=60)
 
         return(response)
 
@@ -85,7 +85,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/devices'
-        response = requests.get(url, auth=self._auth)
+        response = requests.get(url, auth=self._auth, timeout=60)
 
         return response
 
@@ -100,7 +100,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/device/{device_id}'
-        response = requests.get(url, auth=self._auth)
+        response = requests.get(url, auth=self._auth, timeout=60)
 
         return response
 
@@ -122,7 +122,7 @@ class Tailscale:
 
         url = f'{self._base_url}/device/{device_id}/authorized'
 
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=authorized_data)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=authorized_data, timeout=60)
 
         return(response)
 
@@ -146,7 +146,7 @@ class Tailscale:
 
         url = f'{self._base_url}/device/{device_id}/tags'
 
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=tags_data)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=tags_data, timeout=60)
 
         return(response)
 
@@ -163,7 +163,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/device/{device_id}/routes'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return response
 
@@ -185,7 +185,7 @@ class Tailscale:
         }
 
         url = f'{self._base_url}/device/{device_id}/routes'
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=routes_data)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=routes_data, timeout=60)
 
         return response
 
@@ -199,7 +199,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return response
 
@@ -214,7 +214,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys/{key_id}'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return response
 
@@ -229,7 +229,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return(response)
 
@@ -248,7 +248,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys'
 
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=tags_data)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=tags_data, timeout=60)
 
         return(response)
 
@@ -265,7 +265,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/nameservers'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return(response)
 
@@ -292,7 +292,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/nameservers'
 
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=nameservers_data)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=nameservers_data, timeout=60)
 
         return(response)
 
@@ -309,7 +309,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/preferences'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return(response)
 
@@ -335,7 +335,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/preferences'
 
-        response = requests.post(url, auth=self._auth, headers=self._headers, data=dns_preferences_data)
+        response = requests.post(url, auth=self._auth, headers=self._headers, data=dns_preferences_data, timeout=60)
 
         return(response)
 
@@ -352,7 +352,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/searchpaths'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return(response)
 
@@ -373,7 +373,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/searchpaths'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers, data=dns_searchpaths_data)
+        response = requests.get(url, auth=self._auth, headers=self._headers, data=dns_searchpaths_data, timeout=60)
 
         return(response)
 
@@ -396,7 +396,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/logs?start={starttime}&end={endtime}'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return response
 
@@ -425,7 +425,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/network-logs?start={starttime}&end={endtime}'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = requests.get(url, auth=self._auth, headers=self._headers, timeout=60)
 
         return response
 
@@ -456,7 +456,7 @@ class Tailscale:
 
         url = f'https://api.tailscale.com/api/v2/oauth/token'
 
-        response = requests.post(url, headers=self._headers, data=oauth_client_data)
+        response = requests.post(url, headers=self._headers, data=oauth_client_data, timeout=60)
 
         if not client_embed:
             return response
