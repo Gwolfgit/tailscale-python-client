@@ -1,6 +1,7 @@
 import requests
 
 from requests.auth import HTTPBasicAuth
+from security import safe_requests
 
 class Tailscale:
 
@@ -39,7 +40,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/acl'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return response
 
@@ -85,7 +86,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/devices'
-        response = requests.get(url, auth=self._auth)
+        response = safe_requests.get(url, auth=self._auth)
 
         return response
 
@@ -100,7 +101,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/device/{device_id}'
-        response = requests.get(url, auth=self._auth)
+        response = safe_requests.get(url, auth=self._auth)
 
         return response
 
@@ -163,7 +164,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/device/{device_id}/routes'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return response
 
@@ -199,7 +200,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return response
 
@@ -214,7 +215,7 @@ class Tailscale:
         """
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys/{key_id}'
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return response
 
@@ -229,7 +230,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/keys'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return(response)
 
@@ -265,7 +266,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/nameservers'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return(response)
 
@@ -309,7 +310,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/preferences'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return(response)
 
@@ -352,7 +353,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/searchpaths'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return(response)
 
@@ -373,7 +374,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/dns/searchpaths'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers, data=dns_searchpaths_data)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers, data=dns_searchpaths_data)
 
         return(response)
 
@@ -396,7 +397,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/logs?start={starttime}&end={endtime}'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return response
 
@@ -425,7 +426,7 @@ class Tailscale:
 
         url = f'{self._base_url}/tailnet/{self._tailnet}/network-logs?start={starttime}&end={endtime}'
 
-        response = requests.get(url, auth=self._auth, headers=self._headers)
+        response = safe_requests.get(url, auth=self._auth, headers=self._headers)
 
         return response
 
